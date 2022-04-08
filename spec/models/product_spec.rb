@@ -27,4 +27,8 @@ RSpec.describe Product, type: :model do
     it { is_expected.to validate_inclusion_of(:container).in_array(Product::CONTAINER_TYPES) }
     it { is_expected.to validate_numericality_of(:base_margin).is_greater_than_or_equal_to(0).is_less_than_or_equal_to(1) }
   end
+
+  context "associations" do
+    it { is_expected.to have_many(:orders) }
+  end
 end

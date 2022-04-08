@@ -18,7 +18,8 @@
 require 'rails_helper'
 
 RSpec.describe Order, type: :model do
-  context 'validations' do
+
+  context "validations" do
     it { is_expected.to validate_presence_of(:order_date) }
     it { is_expected.to validate_presence_of(:quantity) }
     it { is_expected.to validate_presence_of(:sales) }
@@ -30,5 +31,10 @@ RSpec.describe Order, type: :model do
     it { is_expected.to validate_presence_of(:priority) }
     it { is_expected.to validate_numericality_of(:discount).is_greater_than_or_equal_to(0).is_less_than_or_equal_to(1) }
     it { is_expected.to validate_inclusion_of(:shipping_mode).in_array(Order::SHIPMENT_MODE_TYPES) }
+  end
+
+  context "associations" do
+    it { is_expected.to belong_to(:customer) }
+    it { is_expected.to belong_to(:product) }
   end
 end
