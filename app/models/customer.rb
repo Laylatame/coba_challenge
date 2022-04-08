@@ -13,8 +13,10 @@
 #
 class Customer < ApplicationRecord
 
+  SEGMENT_TYPES = ['Consumer', 'Corporate', 'Home Office', 'Small Business']
+
   validates :first_name, :last_name, :province, :region, :segment, presence: true
-  validates :segment, inclusion: { in: ['Consumer', 'Corporate', 'Home Office', 'Small Business'] }
+  validates :segment, inclusion: { in: SEGMENT_TYPES }
 
   def name
     "#{first_name} #{last_name}"

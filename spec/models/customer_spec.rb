@@ -21,7 +21,7 @@ RSpec.describe Customer, type: :model do
     it { is_expected.to validate_presence_of(:province) }
     it { is_expected.to validate_presence_of(:region) }
     it { is_expected.to validate_presence_of(:segment) }
-    it { is_expected.to validate_inclusion_of(:segment).in_array(['Consumer', 'Corporate', 'Home Office', 'Small Business']) }
+    it { is_expected.to validate_inclusion_of(:segment).in_array(Customer::SEGMENT_TYPES) }
   end
 
   context "methods" do
