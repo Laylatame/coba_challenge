@@ -18,5 +18,16 @@
 require 'rails_helper'
 
 RSpec.describe Order, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context 'validations' do
+    it { is_expected.to validate_presence_of(:order_date) }
+    it { is_expected.to validate_presence_of(:quantity) }
+    it { is_expected.to validate_presence_of(:sales) }
+    it { is_expected.to validate_presence_of(:discount) }
+    it { is_expected.to validate_presence_of(:profit) }
+    it { is_expected.to validate_presence_of(:shipping_mode) }
+    it { is_expected.to validate_presence_of(:shipping_cost) }
+    it { is_expected.to validate_presence_of(:shipping_date) }
+    it { is_expected.to validate_numericality_of(:discount).is_greater_than_or_equal_to(0).is_less_than_or_equal_to(1) }
+    it { is_expected.to validate_inclusion_of(:shipping_mode).in_array(Order::SHIPMENT_MODE_TYPES) }
+  end
 end
