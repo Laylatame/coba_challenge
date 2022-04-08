@@ -23,4 +23,6 @@ class Product < ApplicationRecord
   validates :category, inclusion: { in: CATEGORY_TYPES }
   validates :container, inclusion: { in: CONTAINER_TYPES }
   validates :base_margin, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 1 }
+
+  has_many :orders
 end

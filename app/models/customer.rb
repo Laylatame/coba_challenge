@@ -18,6 +18,8 @@ class Customer < ApplicationRecord
   validates :first_name, :last_name, :province, :region, :segment, presence: true
   validates :segment, inclusion: { in: SEGMENT_TYPES }
 
+  has_many :orders
+
   def name
     "#{first_name} #{last_name}"
   end

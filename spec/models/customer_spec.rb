@@ -24,6 +24,10 @@ RSpec.describe Customer, type: :model do
     it { is_expected.to validate_inclusion_of(:segment).in_array(Customer::SEGMENT_TYPES) }
   end
 
+  context "associations" do
+    it { is_expected.to have_many(:orders) }
+  end
+
   context "methods" do
     before(:each) do
       @customer     = create(:customer)
