@@ -30,4 +30,7 @@ class Order < ApplicationRecord
             :shipping_cost, :shipping_date, :priority, presence: true
   validates :discount, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 1 }
   validates :shipping_mode, inclusion: { in: SHIPMENT_MODE_TYPES }
+
+  belongs_to :customer
+  belongs_to :product
 end
