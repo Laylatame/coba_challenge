@@ -9,6 +9,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.string   :shipping_mode
       t.decimal  :shipping_cost
       t.decimal  :shipping_date
+      t.integer  :priority, default: 0
 
       t.timestamps
     end

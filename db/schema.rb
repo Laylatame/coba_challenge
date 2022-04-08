@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2022_04_08_225517) do
     t.string "shipping_mode"
     t.decimal "shipping_cost"
     t.decimal "shipping_date"
+    t.integer "priority", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
